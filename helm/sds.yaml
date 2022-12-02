@@ -1,0 +1,23 @@
+apiVersion: v1
+externalServicesDeclarations:
+- name: ui
+  type: loadBalancer
+  hostnameChartField: ui.hostname
+  loadBalancerPortChartField: ui.port
+  enabled: false
+  enabledChartField: ui.enabled
+  label: Grafana UI
+  description: Port to access the Grafana UI over a Load Balancer
+endpoints:
+- title: Grafana UI
+  group: Developer
+  description: Open the Grafana UI in your browser
+  type: browsing
+  url: http://{externalService.host}:{externalService.port}/
+  contexts:
+  - portal
+  - manage
+  visibility: external
+  presentation: link
+  externalService: ui
+  

@@ -1,0 +1,15 @@
+{{- if eq (toString .Values.management.enabled) "true" }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: ui
+  namespace: {{ .Release.Name }}
+spec:
+  selector:
+    app.kubernetes.io/instance: sds-prometheus
+    app.kubernetes.io/name: grafana
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer
+{{- end }}
