@@ -1,15 +1,36 @@
-{{- if eq (toString .Values.ui.enabled) "true" }}
+{{- if eq (toString .Values.iscSdsPrometheusUi.enabled) "true" }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: ui
+  name: svc-sds-prometheus
+  namespace: {{ .Release.Name }}
+spec:
+  selector:
+    app.kubernetes.io/instance: sds-prometheus-prometheus
+    app.kubernetes.io/name: prometheus
+    prometheus: sds-prometheus-prometheus
+  ports:
+    - name: http-web
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+  type: LoadBalancer
+{{- end }}
+---
+{{- if eq (toString .Values.iscSdsGrafanaUi.enabled) "true" }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-sds-grafana
   namespace: {{ .Release.Name }}
 spec:
   selector:
     app.kubernetes.io/instance: sds-prometheus
     app.kubernetes.io/name: grafana
   ports:
-    - port: 80
+    - name: http-web
+      port: 80
+      protocol: TCP
       targetPort: 3000
   type: LoadBalancer
 {{- end }}
