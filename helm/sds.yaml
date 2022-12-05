@@ -17,6 +17,17 @@ externalServicesDeclarations:
   label: Grafana UI
   description: Port to access the Grafana UI over a Load Balancer
 endpoints:
+- title: Prometheus UI
+  group: Developer
+  description: Open the Prometheus UI in your browser
+  type: browsing
+  url: http://{externalService.host}:{externalService.port}/
+  contexts:
+  - portal
+  - manage
+  visibility: external
+  presentation: link
+  externalService: iscSdsPrometheusUi
 - title: Grafana UI
   group: Developer
   description: Open the Grafana UI in your browser
@@ -27,5 +38,5 @@ endpoints:
   - manage
   visibility: external
   presentation: link
-  externalService: ui
+  externalService: iscSdsGrafanaUi
   
