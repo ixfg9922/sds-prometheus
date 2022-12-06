@@ -32,8 +32,7 @@ endpoints:
   group: Developer
   description: Open the Grafana UI in your browser
   type: browsing
-  #url: http://{externalService.host}:{externalService.port}/
-  url: http://{externalService.host}:80/
+  url: http://{externalService.host}:{externalService.port}/
   contexts:
   - portal
   - manage
