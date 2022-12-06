@@ -1,19 +1,19 @@
 apiVersion: v1
 externalServicesDeclarations:
-- name: iscSdsPrometheusUi
+- name: svcsdsprometheusui
   type: loadBalancer
-  hostnameChartField: iscSdsPrometheusUi.hostname
-  loadBalancerPortChartField: iscSdsPrometheusUi.port
+  hostnameChartField: svcsdsprometheusui.hostname
+  loadBalancerPortChartField: svcsdsprometheusui.port
   enabled: false
-  enabledChartField: iscSdsPrometheusUi.enabled
+  enabledChartField: svcsdsprometheusui.enabled
   label: Prometheus UI
   description: Port to access the Prometheus UI over a Load Balancer
-- name: iscSdsGrafanaUi
+- name: svcsdsgrafanaui
   type: loadBalancer
-  hostnameChartField: iscSdsGrafanaUi.hostname
-  loadBalancerPortChartField: iscSdsGrafanaUi.port
+  hostnameChartField: svcsdsgrafanaui.hostname
+  loadBalancerPortChartField: svcsdsgrafanaui.port
   enabled: false
-  enabledChartField: iscSdsGrafanaUi.enabled
+  enabledChartField: svcsdsgrafanaui.enabled
   label: Grafana UI
   description: Port to access the Grafana UI over a Load Balancer
 endpoints:
@@ -27,7 +27,7 @@ endpoints:
   - manage
   visibility: external
   presentation: link
-  externalService: iscSdsPrometheusUi
+  externalService: svcsdsprometheusui
 - title: Grafana UI
   group: Developer
   description: Open the Grafana UI in your browser
@@ -38,5 +38,5 @@ endpoints:
   - manage
   visibility: external
   presentation: link
-  externalService: iscSdsGrafanaUi
+  externalService: svcsdsgrafanaui
   

@@ -1,8 +1,8 @@
-{{- if eq (toString .Values.iscSdsPrometheusUi.enabled) "true" }}
+{{- if eq (toString .Values.svcsdsprometheusui.enabled) "true" }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-sds-prometheus
+  name: svcsdsprometheusui
   namespace: {{ .Release.Name }}
 spec:
   selector:
@@ -17,11 +17,11 @@ spec:
   type: LoadBalancer
 {{- end }}
 ---
-{{- if eq (toString .Values.iscSdsGrafanaUi.enabled) "true" }}
+{{- if eq (toString .Values.svcsdsgrafanaui.enabled) "true" }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-sds-grafana
+  name: svcsdsgrafanaui
   namespace: {{ .Release.Name }}
 spec:
   selector:

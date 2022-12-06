@@ -40,7 +40,7 @@ annotations:
     - name: Upstream Project
       url: https://github.com/prometheus-operator/kube-prometheus
   # Added lines
-  intersystems/sds-title: Prometheus for SDS
+  intersystems/sds-title: Prometheus for Smart Data Services
   intersystems/sds-organization: InterSystems Corporation
   intersystems/sds-category: custom
 
