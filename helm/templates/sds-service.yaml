@@ -29,7 +29,8 @@ spec:
     app.kubernetes.io/name: grafana
   ports:
     - name: http-web
-      port: {{ .Values.svcsdsgrafanaui.port }}
+      #port: {{ .Values.svcsdsgrafanaui.port }}
+      port: 80
       protocol: TCP
       targetPort: 80
   type: LoadBalancer
