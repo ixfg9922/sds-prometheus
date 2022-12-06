@@ -11,7 +11,7 @@ spec:
     prometheus: sds-prometheus-prometheus
   ports:
     - name: http-web
-      port: 9090
+      port: {{ .Values.svcsdsprometheusui.port }}
       protocol: TCP
       targetPort: 9090
   type: LoadBalancer
@@ -29,8 +29,8 @@ spec:
     app.kubernetes.io/name: grafana
   ports:
     - name: http-web
-      port: 80
+      port: {{ .Values.svcsdsgrafanaui.port }}
       protocol: TCP
-      targetPort: 3000
+      targetPort: 80
   type: LoadBalancer
 {{- end }}
